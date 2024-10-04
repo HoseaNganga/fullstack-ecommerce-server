@@ -7,7 +7,14 @@ const multer = require("multer");
 require("dotenv/config");
 const authJwt = require("./helper/jwt");
 
-app.use(cors());
+//cors options
+const corsOptions = {
+  origin: '*', 
+  methods: 'GET,POST,PUT,DELETE,PATCH,OPTIONS', 
+  allowedHeaders: 'Content-Type,Authorization' 
+};
+
+app.use(cors(corsOptions));
 app.options("*", cors());
 
 //MIDDLEWARE
